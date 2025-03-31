@@ -123,69 +123,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar bg="primary" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand href="#">T1 Legends</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <NavDropdown
-                title="Laptop"
-                id="laptop-category"
-                className="laptop-custom"
-              >
-                <NavDropdown.Item href="#">Acer</NavDropdown.Item>
-                <NavDropdown.Item href="#">Dell</NavDropdown.Item>
-                <NavDropdown.Item href="#">Lenovo</NavDropdown.Item>
-                <NavDropdown.Item href="#">Asus</NavDropdown.Item>
-                <NavDropdown.Item href="#">MSI</NavDropdown.Item>
-                <NavDropdown.Item href="#">Gigabyte</NavDropdown.Item>
-                <NavDropdown.Item href="#">HP</NavDropdown.Item>
-              </NavDropdown>
-
-              <NavDropdown title="PC" id="pc-category" className="pc-custom">
-                <NavDropdown.Item href="#">PC ASUS</NavDropdown.Item>
-                <NavDropdown.Item href="#">PC Acer</NavDropdown.Item>
-                <NavDropdown.Item href="#">PC Dell</NavDropdown.Item>
-                <NavDropdown.Item href="#">PC HP</NavDropdown.Item>
-                <NavDropdown.Item href="#">PC Lenovo</NavDropdown.Item>
-                <NavDropdown.Item href="#">PC Intel</NavDropdown.Item>
-              </NavDropdown>
-
-              <NavDropdown
-                title="Màn hình máy tính"
-                id="mh-category"
-                className="mh-custom"
-              >
-                <NavDropdown.Item href="#">ASUS</NavDropdown.Item>
-                <NavDropdown.Item href="#">Acer</NavDropdown.Item>
-                <NavDropdown.Item href="#">Dell</NavDropdown.Item>
-                <NavDropdown.Item href="#">HP</NavDropdown.Item>
-                <NavDropdown.Item href="#">Lenovo</NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown
-                title="Phụ kiện"
-                id="pk-category"
-                className="pk-custom"
-              >
-                <NavDropdown.Item href="#">Chuột</NavDropdown.Item>
-                <NavDropdown.Item href="#">Bàn phím</NavDropdown.Item>
-                <NavDropdown.Item href="#">Tai nghe</NavDropdown.Item>
-                <NavDropdown.Item href="#">Lót chuột</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Link to="/login">
-              <Button variant="light" className="me-2">
-                Đăng nhập
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button variant="warning">Đăng ký</Button>
-            </Link>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
       {/* Banner */}
       <div
         className="d-flex align-items-center justify-content-center text-white"

@@ -25,16 +25,21 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/register", {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
+      const res = await axios.post("http://localhost:5000/register", formData, {
+        headers: { "Content-Type": "application/json" },
       });
 
       alert(res.data.message);
+
+      // Reset form khi đăng ký thành công
+      setFormData({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
     } catch (error) {
-      console.error("Lỗi:", error.response.data);
-      alert(error.response.data.message || "Đăng ký thất bại!");
+      alert(error.response?.data?.message || "Đăng ký thất bại!");
     }
   };
 
@@ -43,20 +48,21 @@ const Register = () => {
       className="register-page"
       style={{
         backgroundImage:
-          "url('https://www.pixground.com/league-of-legends-t1-skins-4k-wallpaper/?download-img=4k')",
+          "url('https://images6.alphacoders.com/134/1349298.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <Container className="d-flex justify-content-center align-items-center vh-100">
-        <Card className="register-card p-4">
-          <h3 className="text-center mb-4 text-blue">ĐĂNG KÝ</h3>
+      <Container className="d-flex align-items-center justify-content-center vh-100">
+        <Card className="p-4 register-card">
+          <h3 className="text-blue text-center mb-4">ĐĂNG KÝ</h3>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formFullName" className="mb-3">
               <Form.Control
                 type="text"
                 name="username"
                 placeholder="Họ và tên"
+                value={formData.username}
                 onChange={handleChange}
                 required
               />
@@ -67,6 +73,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
@@ -77,6 +84,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 placeholder="Mật khẩu"
+                value={formData.password}
                 onChange={handleChange}
                 required
               />
@@ -87,6 +95,7 @@ const Register = () => {
                 type="password"
                 name="confirmPassword"
                 placeholder="Nhập lại mật khẩu"
+                value={formData.confirmPassword}
                 onChange={handleChange}
                 required
               />
@@ -95,7 +104,7 @@ const Register = () => {
             <div className="d-flex gap-3">
               <Button
                 type="submit"
-                className="btn btn-warning flex-grow-1 rounded-pill shadow-sm py-2"
+                className="flex-grow-1 btn btn-warning rounded-pill shadow-sm py-2"
               >
                 ĐĂNG KÝ
               </Button>
@@ -103,11 +112,19 @@ const Register = () => {
               <Link to="/login" className="flex-grow-1">
                 <Button
                   type="button"
-                  className="btn btn-danger w-100 rounded-pill shadow-sm py-2"
+                  className="btn btn-danger rounded-pill shadow-sm w-100 py-2"
                 >
                   ĐĂNG NHẬP
                 </Button>
               </Link>
+            </div>
+
+            <div className="text-center mt-3">
+              <a href="http://localhost:5000/auth/google">
+                <button className="btn btn-outline-info rounded-pill shadow-sm w-100 py-2">
+                  Đăng ký với Google
+                </button>
+              </a>
             </div>
           </Form>
         </Card>
